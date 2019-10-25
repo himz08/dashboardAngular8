@@ -1,0 +1,42 @@
+.container {
+    background-color: white;
+    border-radius: 9px;
+    display : flex;
+    height: 100px;
+    width: 220px;
+    padding: 2px;
+    margin: 10px;
+    box-shadow: 0px 0px 8px 3px #e0e0e0;
+    
+}
+
+.colOne {
+    display: flex;
+    flex-direction: column;
+}
+
+.colTwo {
+    color: #00a9f4;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 52px;
+  
+
+}
+.rowOne {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #343a41;
+    font-size: 32px;
+    width: 130px;
+}
+.rowTwo {
+    margin: auto;
+    font-size: 14px;
+    flex: 1;
+    color: #66696d;
+}

@@ -1,0 +1,89 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #eaeef3 !important;
+
+  }
+
+  .activeClass{
+    color: orange !important;
+    text-decoration: underline;
+  }
+  .toolbar {
+    background-color:  #07405c;
+    display: flex;
+  }
+  .is-mobile .toolbar {
+    position: fixed;
+    z-index: 2;
+  }
+  
+  h2.app-name {
+    margin-left: 25px;
+    margin-bottom: 0px;
+    color: whitesmoke;
+    flex: 1;
+  }
+  
+  .sidenav-container {
+    flex: 1;
+  }
+  
+  .is-mobile .sidenav-container {
+
+    flex: 1 0 auto;
+  }
+
+  mat-sidenav {
+    width : 20%;
+    z-index: 10;
+  }
+
+  mat-sidenav-content {
+    z-index: 2;
+  }
+
+  .mat-icon-button:focus {
+    outline: none;
+  }
+
+  .sidenav {
+    border-right: solid 1px #bdc9cf;
+    background-color: whitesmoke;
+  }
+
+  .labelName {
+    color: red !important;
+  }
+
+  .mat-list-item:hover {
+    background: white;
+  }
+  @media only screen and (max-width: 425px) {
+    .sidenav {
+        width: 40%;
+    }
+
+    h2.app-name {
+      font-size: 23px;
+    margin-bottom: 0px;
+    margin-left: 18px;
+}
+    }
+
+    .logoutBtn {
+      color: whitesmoke;
+      margin-right: 5px;
+    }
+    .logoutBtn:hover {
+      text-decoration: underline;
+      cursor: pointer;
+
+    }
+  /* #07405c */
+  

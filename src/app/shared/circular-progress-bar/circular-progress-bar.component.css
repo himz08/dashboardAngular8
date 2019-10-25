@@ -1,0 +1,26 @@
+.container {
+    display: inline-block;
+    padding: 1px;
+    box-shadow: 2px 3px 8px 3px #dcd7d7;
+    width: 234px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.heading {
+    background: #045fa2;
+    border-radius: 9px;
+    font-family: sans-serif;
+    font-size: 18px;
+    height: 45px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 5px 3px #b5b5b5;
+}
+
+.pd-10 {
+    padding: 10px;
+}

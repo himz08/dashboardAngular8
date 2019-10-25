@@ -1,0 +1,22 @@
+
+<div class="main-conatainer">
+
+</div>
+<div class="overallStats">
+    <div class="row"> 
+                <div class="div-conatainer col  col-lg-3 col-md-4 col-sm-6" *ngFor="let div of totalCountDivData">
+            <app-total-count-div [iconNumber]="div.iconNumber" [data]="div.data" [subTitle]="div.subTitle"></app-total-count-div>
+        </div>
+    </div>
+</div>
+
+<div class="ctgryHeading">
+    CATEGORIES
+</div>
+
+<div class="buildingWiseStats">
+    <div *ngFor="let data of buildingData" class="companyData">
+            <app-circular-progress-bar [tittle]="data.titleToDisplay" [percentage]="data.percentage" [heading]="data.name"></app-circular-progress-bar>
+        </div>
+    <!-- <app-circular-progress-bar [tittle]="'5/67'" [percentage]="55" [heading]="'Headings'"></app-circular-progress-bar> -->
+</div>

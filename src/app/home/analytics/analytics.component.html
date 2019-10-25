@@ -1,0 +1,57 @@
+<div class="barChartContainer">
+    <div class="headingBox">
+
+        <div class="pd-10 dropdown btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Daily Analysis
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item">Value 1</a>
+                <a class="dropdown-item">Value 3</a>
+                <a class="dropdown-item">Value 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item">Value 4</a>
+            </div>
+        </div>
+
+        <div class="pd-10 selectVehicleType">
+            <select [(ngModel)]="vehichleType">
+                <option value="all">All</option>
+                <option value="cars">Cars</option>
+                <option value="bikes">Bikes</option>
+            </select>
+        </div>
+
+        <div class="pd-10 date-picker">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="selectedDate"
+                            ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                                <fa-icon [icon]="faTable"></fa-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+<div class="pd-10">
+        <button (click)="onSearchClick()" class=" btn btn-secondary"> Search</button>
+</div>
+
+
+
+
+
+    </div>
+    <div class="chartBox">
+        <div style="display: block">
+            <canvas baseChart [datasets]="barChartData" [labels]="mbarChartLabels" [options]="barChartOptions"
+                [colors]="barChartColors" [legend]="barChartLegend" [chartType]="barChartType"
+                (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        </div>
+    </div>
+</div>

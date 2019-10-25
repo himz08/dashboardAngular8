@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="heading"> {{heading || 'Company'}}</div>
+    <div class="pd-10">
+      <circle-progress
+      [percent]="percentage"
+      [radius]="100"
+      [subtitleFontSize]='15'
+      [subtitleFormat]="formatSubTitle"
+      [animation]="true"
+      [animationDuration]="300"
+      [titleFormat]="formatTitle"></circle-progress>    </div>
+
+</div>

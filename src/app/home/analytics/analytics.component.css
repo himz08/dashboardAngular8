@@ -1,0 +1,56 @@
+.barCharContainer {
+    justify-content: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.headingBox {
+    display: flex;
+    align-items: center;
+    height: 101px;
+    padding: 10px;
+    background: white;
+    margin: 12px;
+    color: #387db9;
+    box-shadow: 0px 0px 8px 3px #e0e0e0;
+}
+
+.chartBox {
+    width: 75%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+select {
+    height: 40px;
+    width: 100px;
+}
+
+
+.headingBox {
+    display: flex;
+}
+
+.pd-10 {
+    padding: 10px;
+}
+
+@media only screen and (max-width: 425px) {
+    .chartBox {
+        width: 98%;
+    }
+
+    .headingBox {
+        flex-wrap: wrap;
+        height: 260px;
+    }
+
+    .dropdown, .selectVehicleType {
+        flex: 1;
+    }
+    .date-picker {
+        width: 100%;
+    }
+    
+}

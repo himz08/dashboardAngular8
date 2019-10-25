@@ -1,0 +1,284 @@
+{
+  "Users": [
+    {
+      "id": 47,
+      "firstName": "Himanshu",
+      "lastName": "Budhiraja",
+      "email": "hslb@gmail.com",
+      "password": "qwerty",
+      "phoneNumber": "8295869999",
+      "fullName": "Himanshu Budhiraja"
+    },
+    {
+      "id": 88,
+      "firstName": "Aditi",
+      "lastName": "Sarkar",
+      "email": "aditi@gmail.com",
+      "password": "qwerty",
+      "phoneNumber": "7906216892",
+      "fullName": "Aditi Sarkar"
+    },
+    {
+      "id": 59,
+      "firstName": "Deepak",
+      "lastName": "Saluja",
+      "email": "deepak@gmail.com",
+      "password": "qwerty",
+      "phoneNumber": "123456789",
+      "fullName": "Deepak Saluja"
+    }
+  ],
+
+  "BuildingWiseData" : [
+    {
+      "name" : "Accenture",
+      "id": "1",
+      "totalCarSpace" : "200",
+      "totalBikeSpace" : "100",
+      "vacantCarSpace" : "80",
+      "vacantBikeSpace" : "40",
+      "totalCars" : "220",
+      "totalBikes" : "120"
+    },
+    {
+      "name" : "BoomBox",
+      "id": "2",
+      "totalCarSpace" : "300",
+      "totalBikeSpace" : "120",
+      "vacantCarSpace" : "130",
+      "vacantBikeSpace" : "70",
+      "totalCars" : "420",
+      "totalBikes" : "220"
+    },
+    {
+      "name" : "MTV Flip",
+      "id": "3",
+      "totalCarSpace" : "800",
+      "totalBikeSpace" : "700",
+      "vacantCarSpace" : "180",
+      "vacantBikeSpace" : "240",
+      "totalCars" : "1200",
+      "totalBikes" : "990"
+    },
+    {
+      "name" : "Amdocs",
+      "id": "4",
+      "totalCarSpace" : "250",
+      "totalBikeSpace" : "120",
+      "vacantCarSpace" : "90",
+      "vacantBikeSpace" : "10",
+      "totalCars" : "620",
+      "totalBikes" : "520"
+    },
+    {
+      "name" : "BACI-C",
+      "id": "5",
+      "totalCarSpace" : "750",
+      "totalBikeSpace" : "550",
+      "vacantCarSpace" : "290",
+      "vacantBikeSpace" : "440",
+      "totalCars" : "720",
+      "totalBikes" : "1100"
+    }
+  ],
+  "DateWiseHourlyData" : [
+
+    {
+      "date" : "24102019",
+      "valueCars" : "[580, 505, 600, 709, 606, 570, 900, 1000,1200,1102,2534,1020,300,456,347,346,234,754,974,134,234,644,222,120]",
+      "valueBikes" : "[480, 555, 300, 109, 206, 370, 400, 500,1230,1302,1534,2020,1300,436,647,146,334,254,174,1434,534,644,242,520]"
+    },
+    {
+      "date" : "25102019",
+      "valueCars" : "[580, 505, 600, 709, 606, 570, 900, 1000,1200,1102,2534,1020,300,456,347,346,234,754,974,134,234,644,222,120]",
+      "valueBikes" : "[480, 5505, 300, 109, 206, 370, 400, 500,1230,1302,1534,2020,1300,436,647,146,334,254,174,1434,534,644,242,520]"
+    },
+    {
+      "date" : "26102019",
+      "valueCars" : "[580, 505, 600, 709, 606, 570, 900, 1000,1200,1102,2534,1020,300,456,347,346,234,754,974,134,234,644,222,120]",
+      "valueBikes" : "[480, 505, 300, 109, 206, 370, 400, 3500,1230,1302,1534,2020,1300,436,647,146,334,254,174,1434,534,644,242,520]"
+    },
+    {
+      "date" : "27102019",
+      "valueCars" : "[580, 505, 500, 709, 606, 570, 900, 1000,1200,1102,2534,1020,300,456,347,346,234,754,974,134,234,644,222,120]",
+      "valueBikes" : "[480, 5505, 300, 109, 4506, 370, 400, 500,1230,1302,1534,2020,1300,436,647,146,334,254,174,1434,534,644,242,520]"
+    },
+    {
+      "date" : "28102019",
+      "valueCars" : "[580, 505, 600, 709, 606, 570, 9000, 1000,1200,1102,2534,1020,5300,456,347,346,234,754,974,134,234,644,222,120]",
+      "valueBikes" : "[480, 5505, 1300, 2109, 3206, 3370, 1400, 500,1230,1302,1534,2020,1300,436,647,146,334,254,174,1434,534,644,242,520]"
+    }
+
+  ],
+  "Records" : [
+  {
+    "tagId" : 4101,
+    "vehicleNumber" : "HY 22",
+    "ticketNumber" : 322,
+    "vehicleType" : "Bike",
+    "category" : "Spient",
+    "vehicleClass" : "Personal",
+    "parking" : "Free",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 5921,
+    "vehicleNumber" : "TA 33",
+    "ticketNumber" : 807,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Monthly",
+    "amount" : 20,
+    "paymentMode" : "Pending",
+    "status" : "in"
+  },
+  {
+    "tagId" : 1541,
+    "vehicleNumber" : 23,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Free",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 4763,
+    "vehicleNumber" : 24,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Daily",
+    "amount" : 20,
+    "paymentMode" : "Pending",
+    "status" : "in"
+  },
+  {
+    "tagId" : 2260,
+    "vehicleNumber" : 23,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Free",
+    "amount" : 23,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 9422,
+    "vehicleNumber" : 23,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Daily",
+    "amount" : 23,
+    "paymentMode" : "Pending",
+    "status" : "in"
+  },
+  {
+    "tagId" : 3482,
+    "vehicleNumber" : 23,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Free",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 8753,
+    "vehicleNumber" : 23,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Montly Pass",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 9109,
+    "vehicleNumber" : 23,
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Daily",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 1270,
+    "vehicleNumber" : "Dl 10",
+    "ticketNumber" : 123,
+    "vehicleType" : "Bike",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Free",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 11,
+    "vehicleNumber" : "UP 76",
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Daily",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "out"
+  },
+  {
+    "tagId" : 1524,
+    "vehicleNumber" : "PB 55",
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "Spient",
+    "vehicleClass" : "Cab",
+    "parking" : "Free",
+    "amount" : 20,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 1343,
+    "vehicleNumber" : "KA 23",
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "ABC",
+    "vehicleClass" : "Cab",
+    "parking" : "Monthly",
+    "amount" : 120,
+    "paymentMode" : "Paid",
+    "status" : "in"
+  },
+  {
+    "tagId" : 1412,
+    "vehicleNumber" : "HR 12",
+    "ticketNumber" : 123,
+    "vehicleType" : "Car",
+    "category" : "ABC",
+    "vehicleClass" : "Cab",
+    "parking" : "Free",
+    "amount" : 200,
+    "paymentMode" : "Paid",
+    "status" : "out"
+  }
+  ]
+  
+}
