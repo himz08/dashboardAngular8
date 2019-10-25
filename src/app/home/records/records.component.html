@@ -1,18 +1,16 @@
+<!-- Section one - Filters -->
 <div class="header">
     <form class="filterForm" [formGroup]="filterForm" (ngSubmit)="onApplyFilterClick()">
-
         <select formControlName="vehicleType" class="custom-select ">
             <option class="labelName" value="">Vehicle Type</option>
             <option value="Car">Car</option>
             <option value="Bike">Bike</option>
         </select>
-
         <select formControlName="status" class="custom-select">
             <option class="labelName" value="">Status</option>
             <option value="in">IN</option>
             <option value="out">OUT</option>
         </select>
-
         <select formControlName="paymentMode" class="custom-select">
             <option class="labelName" value="">Payment Staus</option>
             <option value="Paid">Paid</option>
@@ -23,14 +21,14 @@
             <option value="Free">Free</option>
             <option value="Monthly">Monthly</option>
             <option value="Daily">Daily</option>
-
         </select>
-
         <div>
             <button  class="btn btn-primary" type="submit">Apply Filter</button>
         </div>
     </form>
 </div>
+
+<!-- Section Two - Table -->
 <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
@@ -75,16 +73,17 @@
             <td mat-cell *matCellDef="let element"> {{element.parking}} </td>
         </ng-container>
 
-        <!-- Parking  Column -->
+        <!-- Payment Mode  Column -->
 
         <ng-container matColumnDef="paymentMode">
             <th mat-header-cell *matHeaderCellDef> Payment Mode </th>
             <td mat-cell *matCellDef="let element"> {{element.paymentMode}} </td>
         </ng-container>
-        <!-- Parking  Column -->
+        
+        <!-- Status  Column -->
 
         <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef> Payment Mode </th>
+            <th mat-header-cell *matHeaderCellDef> Status </th>
             <td mat-cell *matCellDef="let element"> {{element.status}} </td>
         </ng-container>
 

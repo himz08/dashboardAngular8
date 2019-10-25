@@ -1,26 +1,26 @@
 <!-- Thsi is the Log-in Page -->
 <div class="logInContainer">
-<div class="centerBox">
+  <div class="centerBox">
     <div class="logo">
-        <img class="logoImage" src="../../../assets/logo.png">
+      <img class="logoImage" src="../../../assets/logo.png">
     </div>
-        <form class="pd-12" [formGroup]="loginForm" (ngSubmit)="login()">
-                <div class="form-group">
-                  <label for="InputEmail1">Email address</label>
-                  <input class="form-control" type="email" matInput placeholder="abc@gmail.com" formControlName="email" />
-                  <div class="warning" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">
-                        Please enter a valid email address
-                </div>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input class="form-control" type="password"  placeholder="********" formControlName="password" />
-                  <div class="warning" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
-                        Password Required
-                      </div>
-                </div>
-                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Log in</button>
-              </form>
+    <form class="pd-12" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <label for="InputEmail1">Email address</label>
+        <input class="form-control" type="email" matInput placeholder="abc@gmail.com" formControlName="email" />
+        <div class="warning" *ngIf="!loginForm.get('email').valid && loginForm.get('email').touched">
+          Please enter a valid email address
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input class="form-control" type="password" placeholder="********" formControlName="password" />
+        <div class="warning" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+          Password Required
+        </div>
+      </div>
+      <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Log in</button>
+    </form>
 
-</div>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+  <!-- Structure of our dashboard , Toolbar and Navbar -->
 <div class="main-container" [class.is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="toolbar">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
@@ -5,6 +6,7 @@
       <span (click)="onLogoutClick()" class="logoutBtn"> Logout</span> 
     </mat-toolbar>
   
+    <!-- Side Navbar -->
     <mat-sidenav-container class="sidenav-container"
                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
       <mat-sidenav class="sidenav" #snav [mode]="mobileQuery.matches ? 'push' : 'side'"
@@ -13,7 +15,6 @@
           <a mat-list-item [ngClass]="{'activeClass' : nav.id == activeID  }" (click)="onSideNavItemClick(nav)" *ngFor="let nav of fillerNav">{{nav.displayName}}</a>
         </mat-nav-list>
       </mat-sidenav>
-  
       <mat-sidenav-content>
         <router-outlet></router-outlet>
     </mat-sidenav-content>

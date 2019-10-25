@@ -10,11 +10,11 @@ import { OverviewComponent } from './home/overview/overview.component'
 
 
 const appRoutes : Routes = [
+    { path : 'home' , redirectTo : 'home/overview'},
     { path : 'home' , component : HomeComponent , canActivate : [AuthGuard] , children : [
         { path : 'overview' , component : OverviewComponent},
         { path : 'analytics' , component : AnalyticsComponent},
         { path : 'records' , component : RecordsComponent}
-
     ] },
     { path : 'login' , component : LogInComponent},
     { path : '' , redirectTo : 'home/overview' , pathMatch : 'full' },

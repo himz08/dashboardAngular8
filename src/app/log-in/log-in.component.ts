@@ -59,12 +59,6 @@ export class LogInComponent implements OnInit {
 
   }
 
-
-  onClick(){
-    this.router.navigate['/home'];
-  }
-
-
 }
 
 

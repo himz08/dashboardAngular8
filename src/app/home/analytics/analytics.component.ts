@@ -11,33 +11,33 @@ import { CommonService } from 'src/app/shared/common.service';
 })
 export class AnalyticsComponent implements OnInit {
 
-    public mbarChartLabels: string[];
+    public mbarChartLabels: string[]; // Labels to display in x-axis
     public vehichleType = 'all';
     public selectedDate;
     public selectedDateString;
     public faTable = faTable;
     public barChartType: string = 'bar';
     public barChartLegend: boolean = true;
-    public barChartData: any[] = [
+    public barChartData: any[] = [        // Initialising of Y axis data
         { data: [], label: 'Cars' },
-        { data: [58, 55, 60, 79, 66, 57, 90, 1000], label: 'Bikes' }
-    ];    public todaysDateStringForm: string; // 25th oct 2019 === 25102019
+        { data: [], label: 'Bikes' }
+    ];    
+    public todaysDateStringForm: string; // 25th oct 2019 === 25102019
     constructor(private homeService: HomeService, private commonService : CommonService) { }
 
     ngOnInit() {
         this.todaysDateStringForm = this.getTodaysDateString();
-        this.mbarChartLabels = this.homeService.getYaxisData();
-        this.fetchBarChartData(this.todaysDateStringForm);
-        this.homeService.emitTabNumber(2);
+        this.mbarChartLabels = this.homeService.getXaxisData();
+        this.fetchBarChartData(this.todaysDateStringForm); // Fetching today's data
+        this.homeService.emitTabNumber(2); // To change the color of active item in side nav bar
     }
+
+    // Bar Chart properties
 
     public barChartOptions: any = {
         scaleShowVerticalLines: true,
         responsive: true
     };
-
-
-
 
     public barChartColors: Array<any> = [
         {
@@ -58,15 +58,16 @@ export class AnalyticsComponent implements OnInit {
         }
     ];
 
+        // events
+        public chartClicked(e: any): void {
+            // console.log(e);
+        }
+    
+        public chartHovered(e: any): void {
+            // console.log(e);
+        }
 
-    // events
-    public chartClicked(e: any): void {
-        // console.log(e);
-    }
-
-    public chartHovered(e: any): void {
-        // console.log(e);
-    }
+    // Get todays date and convert it to string 
     getTodaysDateString() {
         var ddString,mmString,yyyyString;
         var today = new Date();
@@ -91,11 +92,11 @@ export class AnalyticsComponent implements OnInit {
         // console.log(dateString);
         return dateString;
     }
+
     onSearchClick(){
         if(this.selectedDate != undefined){
             this.selectedDateString = (this.selectedDate.day.toString() + this.selectedDate.month.toString() + this.selectedDate.year.toString())
-            // console.log('------>',this.selectedDateString);
-            this.fetchBarChartData(this.selectedDateString);
+            this.fetchBarChartData(this.selectedDateString);  // Fetch data of selected date
         }
         else {
                 this.commonService.openSnackBar("Invalid Date.", "Dismiss")
@@ -107,9 +108,13 @@ export class AnalyticsComponent implements OnInit {
             params: new HttpParams().set('date', date)
     }
     this.commonService.fetchHourlyDataByDate(options).subscribe(Response => {
-        // console.log('response',Response);
-        this.barChartData[0].data = JSON.parse(Response[0].valueCars);
-        this.barChartData[1].data = JSON.parse(Response[0].valueBikes);
+         if(Response[0] != undefined){
+            this.barChartData[0].data = JSON.parse(Response[0].valueCars);
+            this.barChartData[1].data = JSON.parse(Response[0].valueBikes);
+             }
+             else {
+                 this.commonService.openSnackBar("Data not found", "Dismiss");
+             }
     },
     error => {
         console.log('Error', error);

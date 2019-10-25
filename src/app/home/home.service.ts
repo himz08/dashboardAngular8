@@ -25,7 +25,7 @@ export class HomeService {
     }
 ]
 
-YaxixData = [
+XaxixData = [
   '12:00 AM',
   '01:00 AM',
   '02:00 AM',
@@ -52,8 +52,8 @@ YaxixData = [
   '11:00 PM',
 ]
 
-getYaxisData() {
-  return this.YaxixData.slice();
+getXaxisData() {
+  return this.XaxixData.slice();
 }
 
 getSideBarItems(){

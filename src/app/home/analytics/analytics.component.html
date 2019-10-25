@@ -1,6 +1,7 @@
 <div class="barChartContainer">
-    <div class="headingBox">
 
+    <!-- Section One - Search options eg Date -->
+    <div class="headingBox">
         <div class="pd-10 dropdown btn-group">
             <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
@@ -38,15 +39,12 @@
                 </div>
             </form>
         </div>
-<div class="pd-10">
-        <button (click)="onSearchClick()" class=" btn btn-secondary"> Search</button>
-</div>
-
-
-
-
-
+        <div class="pd-10">
+            <button (click)="onSearchClick()" class=" btn btn-secondary"> Search</button>
+        </div>
     </div>
+
+    <!-- Section Two - Bar Graph -->
     <div class="chartBox">
         <div style="display: block">
             <canvas baseChart [datasets]="barChartData" [labels]="mbarChartLabels" [options]="barChartOptions"

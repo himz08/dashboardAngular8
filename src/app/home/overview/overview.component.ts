@@ -18,6 +18,12 @@ export class OverviewComponent implements OnInit {
 
   constructor(private service: CommonService, private homeService : HomeService) { }
 
+  ngOnInit() {
+    this.fetchBuildingWiseData();
+    this.homeService.emitTabNumber(1);
+  }
+
+  // It will fetch categoryWise data from db
   fetchBuildingWiseData() {
     this.service.fetchBuildingWiseData().subscribe((response) => {
       response.forEach(element => {
@@ -27,7 +33,6 @@ export class OverviewComponent implements OnInit {
         element.titleToDisplay = totalVacantSpot + '/' + totalSpace
       });
       this.buildingData = response;
-      // console.log(this.buildingData);
       this.calTotalCount(response);
     });
   }
@@ -38,6 +43,7 @@ export class OverviewComponent implements OnInit {
     return Math.round((totalVacantSpot / totalSpace) * 100);
   }
 
+// Manipulation of data - Calculating overall stats using category wise data
   calTotalCount(response) {
     var data: combinedData = {
       totalCarsToday: 0,
@@ -64,6 +70,7 @@ export class OverviewComponent implements OnInit {
     this.totalCountDivData = this.createTotalCountDivData();
   }
 
+  // To display data in divs
   createTotalCountDivData() {
     var data: TotalCountDiv[] = [
       {
@@ -109,9 +116,6 @@ export class OverviewComponent implements OnInit {
     ]
     return data;
   }
-  ngOnInit() {
-    this.fetchBuildingWiseData();
-    this.homeService.emitTabNumber(1);
-  }
+
 
 }

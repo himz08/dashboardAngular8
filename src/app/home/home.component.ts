@@ -3,6 +3,7 @@ import {MediaMatcher} from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { SideBarItem } from './sidebarItem.modal';
 import { HomeService } from './home.service';
+import { CommonService } from '../shared/common.service';
 
 @Component({
   selector: 'app-home',
@@ -22,13 +23,14 @@ export class HomeComponent implements OnDestroy,OnInit {
      media: MediaMatcher ,
       private route : Router,
        private homeService : HomeService,
-       private cdr: ChangeDetectorRef) {
+       private cdr: ChangeDetectorRef,
+       private commonService : CommonService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit(){
-    this.fillerNav = this.homeService.getSideBarItems();
+    this.fillerNav = this.homeService.getSideBarItems();  // Fetch sidenav items
     this.homeService.activeTab.subscribe(val => {
       this.activeID = val;
       this.cdr.detectChanges();
@@ -39,11 +41,14 @@ export class HomeComponent implements OnDestroy,OnInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
+  // On sidnav item click, it will route to specific page
   onSideNavItemClick(value : any){
     this.route.navigate([value.routerLink]);
-  //  this.activeID = value.id;
   }
+
+  // Logout function
   onLogoutClick(){
+    this.commonService.openSnackBar("Logout Successful", "Dismiss");
     localStorage.clear();
     this.route.navigate(['/login']);
   }

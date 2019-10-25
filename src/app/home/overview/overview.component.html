@@ -1,7 +1,7 @@
 
 <div class="main-conatainer">
-
 </div>
+<!-- Section one - Overall Stats -->
 <div class="overallStats">
     <div class="row"> 
                 <div class="div-conatainer col  col-lg-3 col-md-4 col-sm-6" *ngFor="let div of totalCountDivData">
@@ -14,9 +14,9 @@
     CATEGORIES
 </div>
 
+<!-- section two - Category wise stats -->
 <div class="buildingWiseStats">
     <div *ngFor="let data of buildingData" class="companyData">
             <app-circular-progress-bar [tittle]="data.titleToDisplay" [percentage]="data.percentage" [heading]="data.name"></app-circular-progress-bar>
         </div>
-    <!-- <app-circular-progress-bar [tittle]="'5/67'" [percentage]="55" [heading]="'Headings'"></app-circular-progress-bar> -->
 </div>
