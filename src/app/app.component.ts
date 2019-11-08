@@ -9,5 +9,4 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'Dashboard-parkwheels';
-  public percentage : number = 80;
 }

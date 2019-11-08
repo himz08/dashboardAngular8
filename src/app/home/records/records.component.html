@@ -30,12 +30,11 @@
 
 <!-- Section Two - Table -->
 <mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
 </mat-form-field>
 
 <div class="width-90 mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
-
 
         <!-- Tagid Column -->
         <ng-container matColumnDef="tagID">

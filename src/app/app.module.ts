@@ -21,7 +21,6 @@ import { OverviewComponent } from './home/overview/overview.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TotalCountDivComponent } from './home/overview/total-count-div/total-count-div.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {DropdownModule} from 'primeng/dropdown';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ChartsModule } from 'ng2-charts';
 
