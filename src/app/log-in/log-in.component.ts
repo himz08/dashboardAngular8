@@ -3,6 +3,9 @@ import { CommonService } from '../shared/common.service';
 import { Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { AuthService, AuthResponseData } from './auth.service';
+import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-log-in',
@@ -15,14 +18,19 @@ export class LogInComponent implements OnInit {
   loginMsg: string = "Login successful";
   loginMsgError: string = "Login Failed!!!";
   action: string = "Dismiss";
+  isLoginMode : boolean = true;
+  isLoading : boolean = false;
 
-  constructor(private services: CommonService, private router: Router) { }
+  constructor(private services: CommonService, private router: Router, private authService : AuthService) { }
 
   ngOnInit() {
 
-    if (this.services.isLoggedIn()) {
-      this.router.navigate(['']);
+    this.authService.user.pipe(take(1)).subscribe( user => {
+      if (!!user){
+        this.router.navigate(['/home/overview']);
+      }
     }
+    )
 
     // loginForm is structured here and linked with view using binding
     this.loginForm = new FormGroup({
@@ -31,29 +39,44 @@ export class LogInComponent implements OnInit {
     })
 
   }
-  login(): void {
 
-    const options = {
-      params: new HttpParams().set('email', this.loginForm.value.email).set('password', this.loginForm.value.password)
-    }  // params - genrated using logged in id and pass
 
-    // in service login function is called to check database    
-    this.services.login(options)
-      .subscribe((response: any) => {
-        if (response.length) {
-          // this block will run if db returns somthing                                             
-          localStorage.setItem('userId', response[0].id);
-          localStorage.setItem('fullName', response[0].fullName);
-          localStorage.setItem('bookingCount', '0');
-          // id and pass is stored in local storage
-          this.services.openSnackBar(this.loginMsg, this.action);
-          this.router.navigate(['/home/overview']);  // it will navigate to home page
+  switchMode(){
+    this.isLoginMode = !this.isLoginMode;
+    console.log(this.isLoginMode);
+  }
+
+
+  onSubmit(signupMode : boolean): void {
+    // in service login function is called to check database   
+    
+    const email = this.loginForm.value.email;
+    const pass = this.loginForm.value.password;
+    let obs : Observable<AuthResponseData>;
+      if(!signupMode){
+         obs = this.authService.login(email,pass);
+      }
+      else {
+         obs = this.authService.signup(email,pass);
+         console.log('Signup...')
+      }
+      console.log(signupMode);
+
+      this.isLoading = true;
+      obs.subscribe( data => {
+        this.router.navigate(['/home/overview']);
+        this.isLoading = false;
+        if (this.isLoginMode){
+          this.services.openSnackBar('Login Successful !', 'Ok');
         }
         else {
-          this.services.openSnackBar(this.loginMsgError, this.action);
+          this.services.openSnackBar('Signup Successful', 'okay');
         }
-
-      })
+      },
+      errMsg => {
+        this.services.openSnackBar(errMsg, 'Dismiss');
+      }
+      )
   }
 }
 

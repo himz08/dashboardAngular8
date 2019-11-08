@@ -3,6 +3,7 @@ import { faTable } from '@fortawesome/free-solid-svg-icons';
 import { HomeService } from '../home.service';
 import { HttpParams } from '@angular/common/http';
 import { CommonService } from 'src/app/shared/common.service';
+import { filter, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-analytics',
@@ -12,6 +13,7 @@ import { CommonService } from 'src/app/shared/common.service';
 export class AnalyticsComponent implements OnInit {
 
     public mbarChartLabels: string[]; // Labels to display in x-axis
+    private fetchedBarChartData : any[];
     public vehichleType = 'all';
     public selectedDate;
     public selectedDateString;
@@ -96,30 +98,43 @@ export class AnalyticsComponent implements OnInit {
     onSearchClick(){
         if(this.selectedDate != undefined){
             this.selectedDateString = (this.selectedDate.day.toString() + this.selectedDate.month.toString() + this.selectedDate.year.toString())
-            this.fetchBarChartData(this.selectedDateString);  // Fetch data of selected date
+            this.dateFilterApplied(this.selectedDateString);  // Fetch data of selected date
         }
         else {
                 this.commonService.openSnackBar("Invalid Date.", "Dismiss")
         }
     }
 
-    fetchBarChartData(date : string){
-        const options = {
-            params: new HttpParams().set('date', date)
-    }
-    this.commonService.fetchHourlyDataByDate(options).subscribe(Response => {
-         if(Response[0] != undefined){
-            this.barChartData[0].data = JSON.parse(Response[0].valueCars);
-            this.barChartData[1].data = JSON.parse(Response[0].valueBikes);
-             }
-             else {
+    dateFilterApplied(date){
+
+        let result = this.fetchedBarChartData.filter( el => {
+            return el.date == date;
+        })
+        if(result.length == 1){
+            this.barChartData[0].data = JSON.parse(result[0].valueCars);
+            this.barChartData[1].data = JSON.parse(result[0].valueBikes);
+        }
+          else {
                  this.commonService.openSnackBar("Data not found", "Dismiss");
              }
+        
+    }
+
+    fetchBarChartData(date : string){
+        this.homeService.isLoading.next(true);
+
+    this.commonService.fetchHourlyDataByDate().pipe(tap( (el) => {
+    }
+   )).subscribe(Response => {
+        this.homeService.isLoading.next(false);
+
+        this.fetchedBarChartData = Response;
+        this.dateFilterApplied(date);
     },
     error => {
         console.log('Error', error);
+        this.homeService.isLoading.next(false);
     });
-
 }
 
 }

@@ -55,11 +55,14 @@ export class RecordsComponent implements OnInit {
   }
 
   fetchRecords(options?) {
+    this.homeService.isLoading.next(true);
     this.commonService.fetchAllRecords(options).subscribe(Response => {
+      this.homeService.isLoading.next(false);
       this.dataSource = new MatTableDataSource<any>(<any>Response);
       this.dataSource.paginator = this.paginator;
     },
       error => {
+        this.homeService.isLoading.next(false);
         console.log('Error', error);
       });
   }

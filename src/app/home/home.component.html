@@ -1,5 +1,6 @@
   <!-- Structure of our dashboard , Toolbar and Navbar -->
-<div class="main-container" [class.is-mobile]="mobileQuery.matches">
+<app-loader *ngIf="isLoading"></app-loader>
+  <div class="main-container" [class.is-mobile]="mobileQuery.matches">
     <mat-toolbar color="primary" class="toolbar">
       <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
       <h2 class="app-name">Parkwheels</h2>

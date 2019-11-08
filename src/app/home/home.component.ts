@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SideBarItem } from './sidebarItem.modal';
 import { HomeService } from './home.service';
 import { CommonService } from '../shared/common.service';
+import { AuthService } from '../log-in/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +17,13 @@ export class HomeComponent implements OnDestroy,OnInit {
   mobileQuery: MediaQueryList;
   public activeID : number = 1;
   fillerNav : SideBarItem[];
+  public isLoading : boolean = false;
 
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
      media: MediaMatcher ,
+     private authService : AuthService,
       private route : Router,
        private homeService : HomeService,
        private cdr: ChangeDetectorRef,
@@ -35,6 +38,10 @@ export class HomeComponent implements OnDestroy,OnInit {
       this.activeID = val;
       this.cdr.detectChanges();
     })
+
+    this.homeService.isLoading.subscribe((value : boolean)=> {
+      this.isLoading = value;
+    });
   }
 
   ngOnDestroy(): void {
@@ -48,9 +55,8 @@ export class HomeComponent implements OnDestroy,OnInit {
 
   // Logout function
   onLogoutClick(){
-    this.commonService.openSnackBar("Logout Successful", "Dismiss");
-    localStorage.clear();
-    this.route.navigate(['/login']);
+this.authService.logout();
+this.commonService.openSnackBar('Logout Successful', 'Dismiss')
   }
 
 }

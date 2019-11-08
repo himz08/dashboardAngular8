@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModuleBundle } from './material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AnalyticsComponent } from './home/analytics/analytics.component'
 import { RecordsComponent } from './home/records/records.component'
 import { OverviewComponent } from './home/overview/overview.component'
@@ -23,6 +23,9 @@ import { TotalCountDivComponent } from './home/overview/total-count-div/total-co
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ChartsModule } from 'ng2-charts';
+import { AuthInterceptorService } from './log-in/auth-interceptor'
+import { LoaderComponent } from './shared/loader/loader.component';
+import { importExpr } from '@angular/compiler/src/output/output_ast';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { ChartsModule } from 'ng2-charts';
     AnalyticsComponent,
     RecordsComponent,
     OverviewComponent,
-    TotalCountDivComponent
+    TotalCountDivComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,7 @@ import { ChartsModule } from 'ng2-charts';
     FontAwesomeModule,
     ChartsModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, {provide : HTTP_INTERCEPTORS, useClass : AuthInterceptorService, multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

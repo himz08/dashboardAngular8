@@ -35,6 +35,21 @@
     color: red;
 }
 
+.options {
+    display: flex;
+    align-items: flex-end;
+}
+.options span {
+    flex: 1;
+    text-align: right;
+    color: royalblue;
+}
+
+.options span:hover {
+    text-decoration : underline;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
     .centerBox {
         width: 60%;

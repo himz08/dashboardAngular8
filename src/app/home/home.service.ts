@@ -1,11 +1,13 @@
 import { SideBarItem } from './sidebarItem.modal';
 import { EventEmitter, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 
 
 export class HomeService {
 
   @Output() activeTab = new EventEmitter<number>();
+  isLoading = new Subject<boolean>();
 
   SideBarItems : SideBarItem[] = [
     {

@@ -1,10 +1,11 @@
 <!-- Thsi is the Log-in Page -->
+<app-loader *ngIf="isLoading"></app-loader>
 <div class="logInContainer">
   <div class="centerBox">
     <div class="logo">
       <img class="logoImage" src="../../../assets/logo.png">
     </div>
-    <form class="pd-12" [formGroup]="loginForm" (ngSubmit)="login()">
+    <form class="pd-12" [formGroup]="loginForm">
       <div class="form-group">
         <label for="InputEmail1">Email address</label>
         <input class="form-control" type="email" matInput placeholder="abc@gmail.com" formControlName="email" />
@@ -19,7 +20,15 @@
           Password Required
         </div>
       </div>
-      <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Log in</button>
+      <div class="options">
+        <button (click)="onSubmit(false)" *ngIf="isLoginMode" [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Log in</button>
+        <span (click)="switchMode()" *ngIf="isLoginMode"> New User ? Signup</span>
+
+
+        <button (click)="onSubmit(true)" *ngIf="!isLoginMode" [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Sign up</button>
+        <span (click)="switchMode()"*ngIf="!isLoginMode"> Already a user ? Login</span>
+      </div>
+
     </form>
 
   </div>

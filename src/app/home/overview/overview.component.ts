@@ -25,7 +25,9 @@ export class OverviewComponent implements OnInit {
 
   // It will fetch categoryWise data from db
   fetchBuildingWiseData() {
+    this.homeService.isLoading.next(true);
     this.service.fetchBuildingWiseData().subscribe((response) => {
+      this.homeService.isLoading.next(false);
       response.forEach(element => {
         var totalSpace = (+element.totalBikeSpace + (+element.totalCarSpace)).toString();
         var totalVacantSpot = (+element.vacantBikeSpace + (+element.vacantCarSpace)).toString();
@@ -34,6 +36,10 @@ export class OverviewComponent implements OnInit {
       });
       this.buildingData = response;
       this.calTotalCount(response);
+    },
+    error => {
+      this.homeService.isLoading.next(false);
+      console.log(error);
     });
   }
 
